@@ -10,8 +10,10 @@ class IBag(ABC, Generic[T]):
 
     @abstractmethod
     def __init__(self, *items: Optional[Iterable[T]]) -> None:
-        self.Bag= []
-        pass
+       self.items = []
+       if items:
+            for item in items:
+                self.add(item)
     
     @abstractmethod
     def add(self, item: T) -> None:
@@ -42,7 +44,10 @@ class IBag(ABC, Generic[T]):
             >>> Bag.add(None)
             TypeError: Item cannot be None
         """
+        if T == None:
+            raise TypeError(" this cant be Nonetype ")
         self.Bag.append(T)
+
         pass
 
     @abstractmethod
