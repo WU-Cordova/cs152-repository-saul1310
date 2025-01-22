@@ -10,10 +10,7 @@ class IBag(ABC, Generic[T]):
 
     @abstractmethod
     def __init__(self, *items: Optional[Iterable[T]]) -> None:
-       self.items = []
-       if items:
-            for item in items:
-                self.add(item)
+       self.__Bag =[]
     
     @abstractmethod
     def add(self, item: T) -> None:
